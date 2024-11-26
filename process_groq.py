@@ -168,7 +168,7 @@ async def process_rows(conn, model, s,e):
 async def main():
     conn = await init_db()
     try:
-        models = ["llama-3.2-1b-preview", "gemma2-9b-it"]
+        models = ["llama-3.2-3b-preview", "gemma2-9b-it", "mixtral-8x7b-32768"]
 
         await asyncio.gather(
             *(process_rows(conn, model, START_ROW, END_ROW) for model in models)
