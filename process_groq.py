@@ -127,6 +127,11 @@ async def process_prompt(conn, model, prompt):
                     wait_time = float(match.group(1)) / 1000
                     # print(f"Exceed Tokens per Minute limit -> {model:20s} {CRC32(prompt)}: I will wait {0.5 + wait_time:04f} ms and try again")
                     await asyncio.sleep(0.5 + wait_time)
+                elif match := re.search(r"try again in ([\d\.]+)m([\d\.]+)s", str(e)):
+                    minutes = float(match.group(1))
+                    seconds = float(match.group(2))
+                    wait_time = (minutes * 60) + seconds
+                    await asyncio.sleep(0.5 + wait_time)
                 else:
                     raise e
 
