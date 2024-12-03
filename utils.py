@@ -1,3 +1,10 @@
+import pandas as pd
+import numpy as np
+from sklearn.metrics import precision_recall_curve, auc
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("./batches/with-gpt3-gpt4.csv")
+
 def str_to_list(s):
     s =  s[1:-1]
     s = s.split()
