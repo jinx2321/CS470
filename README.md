@@ -12,23 +12,30 @@ SelfCheckGPT employs five techniques for hallucination detection, with LLM Promp
 ## Repository Structure
 
 #### `01_inference/`
-- **`Jan.db`, `janin.db`, `jay.db`, `jiwoo.db`, `overall.db`**: Databases containing runs of the SelfCheckGPT dataset, covering different subsets (e.g., rows 0–48, 48–96, etc.)
-- **`process_groq.py`**: Processes raw data and supports prompt parsing improvements
+- **`chatgpt/`:** Covers GPT-3.5-turbo and GPT-4-mini
+  - `batch-gpt-3.5-turbo.jsonl`, `batch-gpt-4o-mini.jsonl`: Input files for OpenAPI execution to generate output files
+  - `batch_67462c8ed99c81908c49f5851e20ecd5_output.jsonl`, `batch_67462c9d1d788190adf6c580d095c7e0_output.jsonl`: Contains output from "GPT-runs" of the SelfCheckGPT dataset
+  
+- **`groq/`:** Covers Llama-3.2-3b-preview, Gemma2-9b-it, Mixtral-8x7b-32768
+  - `process_groq.py`: Processes raw dataset to generate `.db` files
+  - `Jan.db`, `janin.db`, `jay.db`, `jiwoo.db`, `overall.db`: Databases containing runs of the SelfCheckGPT dataset, covering different subsets (e.g., rows 0–48, 48–96, etc.)
 
 #### `02_transform/`
-- **`db2csv.py`**: Converts `.db` files into `.csv` format for further analysis
-- **`groq-hallucination.csv`**: Contains processed hallucination data for evaluation
+- `batch2csv.py`: Converts `.jsonl` files into `.csv` for analysis
+  - Converts `.jsonl` output files from `chatgpt/` into `with-gpt3-gpt4.csv`
+- `db2csv.py`: Converts `.db` files into `.csv` format for further analysis
+  - Converts `.db` files from `01_inference/` and `with-gpt3-gpt4.csv` files into `groq-hallucination.csv`
 
 #### `03_result/`
-- **`evaluation.ipynb`**: Notebook for analyzing and visualizing model performance, including AUC-PR scores and precision-recall curves
+- `evaluation.ipynb`: Notebook for analyzing and visualizing model performance, including AUC-PR scores and precision-recall curves
 
 #### Root
-- **`README.md`**: This documentation file
+- `README.md`: This documentation file
 
 ## Run
 
 - `process_groq.py`: Contains comments explaining how to run it, please refer to it directly for guidance
-
+- `db2csv.py, batch2csv.py`: Run via `python3 db2csv.py` or `python3 batch2csv.py` (or just `python` depending on your environment)
 - `evaluation.ipynb`: Run all cells in the notebook to generate the evaluation graphs
 
 ## Results
