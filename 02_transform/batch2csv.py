@@ -1,11 +1,14 @@
+import os
+os.chdir("./02_transform")
+
 import pandas as pd
 import json
 
 df = pd.read_parquet("hf://datasets/potsawee/wiki_bio_gpt3_hallucination/data/evaluation-00000-of-00001-e91191b8ff41afbe.parquet")
 
 target = {
-    "gpt-3.5-turbo": "batch_67462c8ed99c81908c49f5851e20ecd5_output.jsonl",
-    "gpt-4o-mini": "batch_67462c9d1d788190adf6c580d095c7e0_output.jsonl",
+    "gpt-3.5-turbo": "../01_inference/chatgpt/batch_67462c8ed99c81908c49f5851e20ecd5_output.jsonl",
+    "gpt-4o-mini": "../01_inference/chatgpt/batch_67462c9d1d788190adf6c580d095c7e0_output.jsonl",
 }
 
 def process_batch(model: str):

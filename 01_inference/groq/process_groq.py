@@ -10,6 +10,9 @@
 
 # ===================== SETTINGS ========================
 
+import os
+os.chdir("./01_inference/groq")
+
 GROQ_API_KEY = 'gsk_PutYourGROQAPIkeyherePutYourGROQAPIkeyherePutYourGRO' # Put your GROQ API key here!!
 
 # Uncomment your row range!!

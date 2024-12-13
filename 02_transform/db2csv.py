@@ -1,3 +1,6 @@
+import os
+os.chdir("./02_transform")
+
 import sqlite3
 import pandas as pd
 from tqdm import tqdm
@@ -10,7 +13,7 @@ cache = {}
 
 
 for dbname in dbnames:
-    conn = sqlite3.connect(f"{dbname}.db")
+    conn = sqlite3.connect(f"../01_inference/groq/{dbname}.db")
     conns.append(conn)
     c = conn.cursor()
     c.execute('''
