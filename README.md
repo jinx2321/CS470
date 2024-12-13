@@ -26,6 +26,12 @@ SelfCheckGPT employs five techniques for hallucination detection, with LLM Promp
 ### Jupyter Notebook
 - `evaluation.ipynb`: Notebook for analyzing and visualizing model performance, including AUC-PR scores and precision-recall curves
 
+## Run
+
+- `process_groq.py`: Contains comments explaining how to run it, please refer to it directly for guidance.
+
+- `evaluation.ipynb`: Run all cells in the notebook to generate the evaluation graphs.
+
 ## Results
 
 Key findings:
