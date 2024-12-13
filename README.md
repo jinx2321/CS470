@@ -11,26 +11,18 @@ SelfCheckGPT employs five techniques for hallucination detection, with LLM Promp
 
 ## Repository Structure
 
-### Database Files
 - `Jan.db`, `janin.db`, `jay.db`, `jiwoo.db`: These files contain runs of the SelfCheckGPT dataset, covering different subsets (e.g., rows 0–48, 48–96, etc.)
-  
-### CSV Files
 - `groq-hallucination.csv`: Contains processed hallucination data for evaluation
 - `with-gpt3-gpt4.csv`: Stores performance metrics comparing GPT-3.5-turbo and GPT-4-mini models
-
-### Python Scripts
 - `db2csv.py`: Converts `.db` files into `.csv` for further analysis
 - `process_groq.py`: Processes raw data and supports prompt parsing improvements
-- `utils.py`: Contains utility functions for data handling and visualization
-
-### Jupyter Notebook
 - `evaluation.ipynb`: Notebook for analyzing and visualizing model performance, including AUC-PR scores and precision-recall curves
 
 ## Run
 
-- `process_groq.py`: Contains comments explaining how to run it, please refer to it directly for guidance.
+- `process_groq.py`: Contains comments explaining how to run it, please refer to it directly for guidance
 
-- `evaluation.ipynb`: Run all cells in the notebook to generate the evaluation graphs.
+- `evaluation.ipynb`: Run all cells in the notebook to generate the evaluation graphs
 
 ## Results
 
