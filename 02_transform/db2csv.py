@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 from tqdm import tqdm
 
-dbnames = ["total"]
+dbnames = ["Jan","janin","jay","jiwoo","overall"]
 conns = []
 
 cache = {}
